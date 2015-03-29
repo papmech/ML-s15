@@ -1,0 +1,88 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips13submit_e,times}
+\usepackage{hyperref}
+\usepackage{url}
+%\documentstyle[nips13submit_09,times,art10]{article} % For LaTeX 2.09
+
+
+\title{OCR using Machine Learning Techniques and Hidden Markov Models}
+
+
+\author{
+Jiang Lingzhang \\
+Department of Computer Science\\
+Carnegie Mellon University\\
+Pittsburgh, PA 15213 \\
+\texttt{jlz777@gmail.com} \\
+\And
+Jonathan Yee \\
+Department of Computer Science\\
+Carnegie Mellon University\\
+Pittsburgh, PA 15213 \\
+\texttt{papmech@gmail.com} \\
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+
+\maketitle
+
+\section{Project Proposal}
+
+\subsection{Project Idea}
+
+We would like to tackle the problem of Optical Character Recognition (OCR) using Machine Learning Techniques we have learned in class. The goal of OCR is to turn images into text. OCR can be analyzed using the noisy channel model, with the source being the human mind, and the channel being the handwriting technique. We want to determine the most likely letter given the handwriting.
+
+For this project, we intend to design a Hidden Markov Model. The hidden states of the HMM will be the letters the human is thinking of, and the observed output is the actual handwriting represented as a pixel vector. This HMM can be graphically represented as a Bayes net. The goal is to find the sequence of hidden states (i.e. letters) that maximize the joint probability of those characters and the pixel vectors. Various OCR techniques (neural networks, naive bayes, logistic regression) can be applied to determine the probabilities that a pixel vector is a certain letter. We also intend to use the Viterbi algorithm to determine the most likely sequence of letters.
+
+\subsection{Data Set}
+
+We will be using the OCR dataset found at
+\begin{center}
+   \url{http://ai.stanford.edu/~btaskar/ocr/}
+\end{center}
+
+\subsection{Software We Will Write}
+
+\begin{enumerate}
+	\item Adapt an algorithm for performing OCR that can be used on the dataset.
+	\item Write code for building HMMs and performing probability analysis on them.
+	\item Framework for integrating the above mentioned parts.
+\end{enumerate}
+
+\subsection{Teammates and Work Division}
+Jiang Lingzhang (lingzhaj) and Jonathan Yee (jyee1).
+\begin{enumerate}
+	\item Read up on papers. (Both)
+	\item Work on concept and math related to HMM and its application to the dataset. (Both)
+	\item Look at data-set and write code for processing it. (Lingzhang)
+	\item Implement and analyze different OCR algorithms. (Both)
+	\item Compare and analyze results. (Both).
+\end{enumerate}
+
+\subsection{Midterm Milestone}
+
+We hope to implement OCR algorithms and run it on the dataset with satisfactory accuracy
+
+\subsubsection*{References}
+
+\small{
+[1] Ivan Dervisevic (2006) {\it Machine Learning Methods for Optical Character Recognition.} \url{http://perun.pmf.uns.ac.rs/radovanovic/dmsem/completed/2006/OCR.pdf}
+
+[2] Paolo Frasconi, Giovanna Soda, Alessandro Vullo (2001) {\it Text Categorization for Multi-page Documents: A Hybrid Naive Bayes HMM Approach.} \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.28.3940&rep=rep1&type=pdf}
+}
+
+\end{document}
