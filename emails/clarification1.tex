@@ -106,7 +106,7 @@ We plan to use MLE to find $\phi_{i,j}$. Let $c_1, c_2$ be consecutive letters. 
 
 To find $\theta_{i}(X)$, we find $P(X | c)$ where $c$ is the letter that is associated with state $i$. Assume Naive Bayes (conditional independence) assumption on $P(X | c)$, so we have $$ P(X | c) = \prod_i P(X_i | c)$$. This can be obtained from the training data by looking at all pixel vectors for letter $c$, and applying MLE to calculate $P(X_i = 0 | c)$ and $P(X_i = 1 | c)$ using the frequencies of the pixels that are on and off.
 
-A word is $X_1, ..., X_n$ where $n$ is the length of the word. To classify a word, feed the above parameters into the Viterbi algorithm, with the observed states as $X_1, ..., X_n$ to obtain the hidden states $c_1, ..., c_n$, which are the letters.
+A word is $<X_1, ..., X_n>$ where $n$ is the length of the word. To classify a word, feed the above parameters into the Viterbi algorithm, with the observed states as $X_1, ..., X_n$ to obtain the hidden states $c_1, ..., c_n$, which are the letters.
 
 \textbf{Question}: Is this a valid extension? We are not using EM but some variation of Naive Bayes, MLE, and transition probabilities to improve the classifiers from the baseline further.
 
@@ -114,7 +114,9 @@ A word is $X_1, ..., X_n$ where $n$ is the length of the word. To classify a wor
 
 Use Expectation Maximization to find out the transition and emission probabilities of the HMM above. We are not sure how EM works using HMM or where to start, but we will research this.
 
-Question: How do we represent the observed pixel vector as proper states? Do we assume that the pixels take a multinomial distribution with 128 parameters?
+\textbf{Question}: How do we represent the observed pixel vector as proper states? Do we assume that the pixels take a multinomial distribution with 128 parameters?
+
+\textbf{Question}: Is using "EM" equivalent to using the Baum-Welch algorithm?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
