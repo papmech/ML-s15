@@ -10,6 +10,7 @@ nchars = numel(unique(labels));
 [nobs, nfeats] = size(data);
 nfolds = 10;
 
+
 %% Naive Bayes
 indices = crossvalind('Kfold', nobs, nfolds);
 nbcmat = [];
@@ -27,17 +28,21 @@ for i=1:nfolds
     nberr = [nberr sum(predicted~=testLabels)/numel(testLabels)];
 end
 avgerrnb = mean(nberr);
+avgnbcmat = mean(reshape(nbcmat, size(zeros(nchars, nchars, nfolds))), 3);
 
 %% Logistic Regr
-nfolds = 3;
-setsize = 2000;
+nfolds = 5;
+setsize = 1000;
+numRetain = 30;
+
 setindices = randsample(nobs, setsize);
 data = data(setindices, :);
-data = compute_mapping(data, 'PCA', 30);
+labels = labels(setindices);
+data = compute_mapping(data, 'PCA', numRetain);
 [nobs, nfeats] = size(data);
 indices = crossvalind('Kfold', nobs, nfolds);
 lrerr = [];
-lcrmat = [];
+lrcmat = [];
 for i=1:nfolds
     i
     test = (indices==i); train = ~test;
@@ -49,9 +54,10 @@ for i=1:nfolds
     probs = mnrval(B, testData);
     [~, ind] = sort(probs, 2);
     predicted = ind(:, end);
-    lrcmat = [lcrmat confusionmat(testLabels, predicted)];
+    lrcmat = [lrcmat confusionmat(testLabels, predicted)];
     lrerr = [lrerr sum(predicted~=testLabels)/numel(testLabels)];
 end
 avglrerr = mean(lrerr);
+avglrcmat = mean(reshape(lrcmat, size(zeros(nchars, nchars, nfolds))), 3);
 
-save('results.mat', 'nberr', 'nbcmat', 'lrerr', 'lrcmat');
+save('results2.mat', 'nberr', 'nbcmat', 'lrerr', 'lrcmat');
