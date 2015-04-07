@@ -68,8 +68,20 @@ N-fold cross validation splits the data into N disjoint sets. In each of N itera
 We performed 10-fold cross validation for our Naive Bayes classifier and were able to obtain a final accuracy of 62.7\%.
 
 \subsection{Logistic Regression}
+The other classifier that we chose for our baseline is logistic regression.
+Logistic regression transforms a given binomial dependent variable, eg. the result of a coin toss, and applies the logistic function to it, effectively transforming it into a continuous variable, as such:
+$$F(x) = \frac{1}{1+e^{-(-\beta_0 + \beta_1x)}}$$
+The logistic function is useful because it is a function mapping from real numbers to an interval between 0 and 1, and hence the output can be treated as a probability. The logistic regression algorithm itself then follows an approach similar to linear regression to train a set of weight($\beta_0, \beta_1...$) that maximizes the likelihood of the data.
+
+In our case, as we have 26 unique characters which cannot be represented by a binomial variable, we chose to use the multinomial logistic regression algorithm(mnrfit) provided in the statistics toolbox in Matlab. The model takes basically the same principles governing logistic regression for a binary dependent variable, except that it assigns one of the categories for the dependent variable as a 'reference category', and calculates the probabilities of an observation being in each of the other categories as opposed to being in the reference category. For the parameters we used the nominal(default) model, as there is no natural ordering among our response variable categories that would better suit an ordinal model.
+
+When running the logistic regression algorithm, we noticed an abnormally long run time. Hence, we eventually reduced the number of examples in the data to 2000 as well as using principal component analysis to reduce the dimensionality of the data down to 50 features. Even so, there were warnings that the model failed to converge. We suspect that this could be a result of the sparseness of the data matrix as each of the raw pixel values can only take on a value of 0 or 1.
+
+In any case, after 5-fold cross validation, we were able to obtain a mean accuracy of 64.1\% which is still slightly better than Naive Bayes.
 
 \subsection{Baseline Comparison}
+When running the classification, we also obtained the confusion matrices, and below is a visualization of the average confusion matrix from Naive Bayes and Logistic Regression respectively.
+
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.3]{confusionnb.png}
@@ -78,37 +90,13 @@ We performed 10-fold cross validation for our Naive Bayes classifier and were ab
 \caption{Visualization of the confusion mats for baseline classifiers}
 \end{figure}
 
-\subsection{Tables}
+A given square $C(i, j)$ shows the number of examples that are known to be in category $i$ but are classified to be in category $j$. A brighter colored square indicates that more examples fall under this description.
 
-All tables must be centered, neat, clean and legible. Do not use hand-drawn
-tables. The table number and title always appear before the table. See
-Table~\ref{sample-table}.
+We can observe that there are some noticeable patterns for both classifiers just by looking at Figure 1. For example, We see that most of the z's have been classified correctly for both classifiers as the last row is close to being consistently dark blue except at the last square.
 
-Place one line space before the table title, one line space after the table
-title, and one line space after the table. The table title must be lower case
-(except for first word and proper nouns); tables are numbered consecutively.
-
-\begin{table}[t]
-\caption{Sample table title}
-\label{sample-table}
-\begin{center}
-\begin{tabular}{ll}
-\multicolumn{1}{c}{\bf PART}  &\multicolumn{1}{c}{\bf DESCRIPTION}
-\\ \hline \\
-Dendrite         &Input terminal \\
-Axon             &Output terminal \\
-Soma             &Cell body (contains cell nucleus) \\
-\end{tabular}
-\end{center}
-\end{table}
+Also, for naive bayes, we see that there seems to be a lot of confusion in classifying n(row 14), which seems to be commonly misclassified as n and o, which makes logical sense. 
 
 
-\subsubsection*{Acknowledgments}
-
-Use unnumbered third level headings for the acknowledgments. All
-acknowledgments go at the end of the paper. Do not include 
-acknowledgments in the anonymized submission, only in the 
-final paper. 
 
 \subsubsection*{References}
 
