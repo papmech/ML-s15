@@ -72,7 +72,7 @@ The dataset we are using contains handwritten words. The dataset was collected b
 
 The data set can be accessed at \url{http://ai.stanford.edu/~btaskar/ocr/}
 
-\section{Results}
+\section{Results - Baseline}
 \subsection{Naive Bayes}
 For our first baseline we performed Naive Bayes on the raw pixel data.
 If given some character $c$ and an array of n binary pixel values $\{p_1, ..., p_n\}$, the algorithm is based on basic Bayes rule:
@@ -157,11 +157,13 @@ We can observe that there are some noticeable patterns for both classifiers just
 Also, for naive bayes, we see that there seems to be a lot of confusion in classifying n(row 14), which seems to be commonly misclassified as n and o, which makes logical sense. 
 
 
+\section{Results - Intermediate}
+
 \subsection{MLE-Learned HMM Parameters}
 
 We can model a sequence of handwritten letters using a Hidden Markov Model (see Figure~\ref{fig:hmm-letters}). Each hidden state is a letter $c$. Each observed state is a pixel vector $v, v_i \in \{0,1\}$, with length 128 (this is a $16 \times 8$ image). 
 
-In order for us to run the Viterbi algorithm, we need to find the following parameters:
+To obtain a Hidden Markov Model, we need to find the following parameters:
 \begin{itemize}
 	\item $\pi_i$ : transition probability from state \texttt{INIT} to $i$
 	\item $\phi_{i,j}$ : transition probability from state $i$ to $j$
@@ -176,6 +178,8 @@ To find $\theta_{i}(v)$, we find $P(v | c)$ where $c$ is the letter that is asso
 $$ P(v | c) = \prod_i P(v_i | c)$$
 This can be obtained from the training data by looking at all pixel vectors for letter $c$, and applying MLE to calculate $P(v_i = 0 | c)$ and $P(v_i = 1 | c)$ using the frequencies of the pixels that are 0 or 1. In other words,
 $$ P(v_i = 1 | c = l) = \frac{\mycount(c = l, v_i = 1)}{\sum_{j=0}^1 \mycount(c = l, v_i = j)}$$
+
+% INSERT VITERBI ALGO HERE
 
 A word is a sequence of letters $Y = <c_1, c_2, ..., c_n>$ with an accompanying sequence of pixel vectors $<v_1, ..., v_n>$, where $n$ is the length of the word. To classify a word, feed the above parameters into the Viterbi algorithm, with the observed states as $v_1, ..., v_n$ to obtain the most likely path of hidden states $\hat{Y} = <c_1, ..., c_n>$, which are the letters. We can then compare the sequence $\hat{Y}$ to the correct labels $Y$ and derive the accuracy of the MLE-learned HMM at OCR.
 
@@ -198,7 +202,10 @@ Avg & 69.7\% \\
 \label{tab:mle-hmm-results}
 \end{table}
 
+% INSERT CONFUSION MATRIX HERE
+
 After 5-fold cross validation, we were able to obtain a mean accuracy of 69.7\% (see Table~\ref{tab:mle-hmm-results}), which is more than 5\% better than either Naive Bayes or Logistic Regression.
+
 
 \subsection{MLE-Learned HMM Comparison to Baseline}
 
@@ -207,6 +214,14 @@ The mean accuracy of the MLE-learned HMM (69.7\%) is more than 5\% more accurate
 One of the shortcomings thus far might be the Naive Bayes assumption on the pixel vector, where we assume that the value of each pixel is independent of other surrounding pixels, given the same character. This is unfortunately not true, since a writing instrument is likely to have a line-width of more than 1 pixel. Furthermore, writing often happens in sets of continuous strokes. This implies that if one pixel is switched on, it is more likely that the surrounding pixels are switched on than not.
 
 Another shortcoming is the assumption of the hidden states as being a modeled as per figure ~\ref{fig:hmm-letters}. This assumption lets us use MLE to calculate the transition states. This assumption may result in lower performance, and we will have to wait until we use the Baum-Welch algorithm to estimate the transition and emission probabilities without any assumptions on the hidden states in the learning phase.
+
+\section{Results - Final}
+
+SVM and HMM are da bomb.
+
+\section{Conclusion}
+
+$x$ is clearly better than $y$ and $f$ this class.
 
 \subsubsection*{References}
 
