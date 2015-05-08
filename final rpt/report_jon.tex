@@ -103,7 +103,7 @@ Iteration & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Avg \\
 Accuracy (\%) & 62.5 & 61.9 & 62.9 & 62.9 & 63.7 & 62.9 & 62.6 & 63.0 & 61.8 & 62.8 & 62.7\\
 \hline
 \end{tabular}
-\caption{Output of training and testing MLE-learned HMM over some number of iterations}
+\caption{Test accuracy of MLE-learned HMM classifier after 10-fold cross validation}
 \label{tab:mid-logr-results}
 \end{table}
 
@@ -152,7 +152,7 @@ Iteration & 1 & 2 & 3 & 4 & 5 & Avg \\
 Accuracy (\%) & 72.00 & 65.75 & 64.50 & 65.25 & 64.75 & 66.45 \\
 \hline
 \end{tabular}
-\caption{Output of training and testing Logistic Regression over some number of iterations}
+\caption{Test accuracy of Logistic Regression classifier after 5-fold cross validation}
 \label{tab:mid-logr-results}
 \end{table}
 
@@ -216,7 +216,7 @@ Iteration & 1 & 2 & 3 & 4 & 5 & Avg \\
 Accuracy (\%) & 69.77 & 70.08 & 67.72 & 70.61 & 70.11 & 69.7 \\
 \hline 
 \end{tabular}
-\caption{Output of training and testing MLE-learned HMM over some number of iterations}
+\caption{Test accuracy of MLE-learned HMM classifier after 5-fold cross validation}
 \label{tab:mle-hmm-results}
 \end{table}
 
@@ -340,7 +340,7 @@ We use grid search with 5-fold cross validation to optimize across 5 values of $
 \label{fig:svm-acc-c-gamma}
 \end{figure}
 
-From the top 2 graphs in Figure \ref{fig:svm-acc-c-gamma}, we see that values of $\gamma$ larger than 1 contributed sharp decrease in accuracy regardless of the values of $C$, and there seems to be an 'optimal range' of values, shown by the yellow grids, where accuracy hovered around 89\%. After removing the sub-optimal range, we obtain the graph at the bottom of Figure \ref{fig:svm-acc-c-gamma}, which shows our optimal value of $C=10$, $g=0.1$, which was able to obtain a classification accuracy of $89.9\%$ as shown in Table \ref{tab:svm-cross-val}.
+From the first 2 graphs in Figure \ref{fig:svm-acc-c-gamma}, we see that values of $\gamma$ larger than 1 contributed sharp decrease in accuracy regardless of the values of $C$, and there seems to be an 'optimal range' of values, shown by the yellow grids, where accuracy hovered around 89\%. After removing the sub-optimal range, we obtain the graph at the bottom of Figure \ref{fig:svm-acc-c-gamma}, which shows our optimal value of $C=10$, $g=0.1$, which was able to obtain a classification accuracy of $89.9\%$ as shown in Table \ref{tab:svm-cross-val}.
 
 \begin{table}[h]
 \centering
@@ -407,9 +407,9 @@ We theorize that although the Baum-Welch algorithm works well for discrete obser
 As the last method to try to improve the OCR test accuracy, we decided to combine the results of the SVM classifier with the MLE-learned HMM. A new set of parameters were derived in the following way:
 \begin{enumerate}
 	\item $\pi_i$, $\phi_{i_j}$ : Use the same initial transition probabilities as in the MLE-learned HMM classifier
-	\item $\theta_c(V)$ : Use the probability $P(Y=c|V)$ given by the SVM classifier, where $Y$ is the random variable denoting the hidden state (the letter), $c$ is the hidden state corresponding to letter '$c$', and $V = <v^{(1)}, ..., v^{(128)}$ is the $16 \times 8$ pixel vector
+	\item $\theta_c(V)$ : Use the probability $P(Y=c|V)$ given by the SVM classifier, where $Y$ is the random variable denoting the hidden state (the letter), $c$ is the hidden state corresponding to letter '$c$', and $V = <v^{(1)}, ..., v^{(128)}>$ is the $16 \times 8$ pixel vector
 \end{enumerate}
-The justification for 2. is as follows. $\theta_i(v)$ is $P(V|Y=c)$, that is, the probability of emitting the pixel vector $V$ given that we are currently in state $i$. By Bayes theorem, 
+The justification for 2. is as follows. $\theta_i(v)$ is $P(V|Y=c)$, that is, the probability of emitting the pixel vector $V$ given that we are currently in state $c$. By Bayes theorem, 
 \begin{eqnarray*}
 	P(V|Y=c) &=& \frac{P(Y=c|V)P(V)}{P(Y=c)} \\
 	&\propto & P(Y=c|V) \\
