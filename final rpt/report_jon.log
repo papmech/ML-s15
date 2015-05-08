@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 MAY 2015 15:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 MAY 2015 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -337,20 +337,16 @@ File: m.png Graphic file (type png)
  <use m.png>
 Package pdftex.def Info: m.png used on input line 76.
 (pdftex.def)             Requested size: 63.45935pt x 55.10349pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [2pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.91 ..... , p_n|c)p(c)}{p(p_1, p_2, ... , p_n)}$$
-                                                   <./o.png (PNG copy)> <./m.pn
-g (PNG copy)>] <confusion_nb.png, id=101, 578.16pt x 433.62pt>
+l.93 
+      <./o.png (PNG copy)> <./m.png (PNG copy)>]
+<confusion_nb.png, id=106, 578.16pt x 433.62pt>
 File: confusion_nb.png Graphic file (type png)
-
-<use confusion_nb.png>
+ <use confusion_nb.png>
 Package pdftex.def Info: confusion_nb.png used on input line 114.
 (pdftex.def)             Requested size: 173.44933pt x 130.087pt.
  [3pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
@@ -358,15 +354,15 @@ Package pdftex.def Info: confusion_nb.png used on input line 114.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.129 ... \frac{1}{1+e^{-(-\beta_0 + \beta_1x)}}$$
-                                                   <./confusion_nb.png (PNG cop
-y)>] <confusion_lr.png, id=114, 578.16pt x 433.62pt>
+l.133 
+       <./confusion_nb.png (PNG copy)>]
+<confusion_lr.png, id=116, 578.16pt x 433.62pt>
 File: confusion_lr.png Graphic file (type png)
  <use confusion_lr.png>
 Package pdftex.def Info: confusion_lr.png used on input line 138.
 (pdftex.def)             Requested size: 173.44933pt x 130.087pt.
 
-<lr_acc.png, id=118, 421.575pt x 316.18124pt>
+<lr_acc.png, id=120, 421.575pt x 316.18124pt>
 File: lr_acc.png Graphic file (type png)
  <use lr_acc.png>
 Package pdftex.def Info: lr_acc.png used on input line 165.
@@ -375,13 +371,17 @@ Package pdftex.def Info: lr_acc.png used on input line 165.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) 
-has been already used, duplicate ignored
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.172 
-       <./confusion_lr.png (PNG copy)>]
+l.179 T
+       o obtain a Hidden Markov Model, we need to find the following paramet...
+ <./confusion_lr.png (PNG copy)>]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 181.
 
 
@@ -395,7 +395,7 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.201 \end{eqnarray*}
+l.206 \end{eqnarray*}
                       <./lr_acc.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 223--224
 
@@ -412,25 +412,21 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.246 W
-       e used mainly two filters. The first assigned a unique value to each ...
- <./confusion_hmm.png (PNG copy)>]
+l.266 \end{center}
+                   <./confusion_hmm.png (PNG copy)>]
 <nb_mod.png, id=143, 421.575pt x 316.18124pt>
 File: nb_mod.png Graphic file (type png)
  <use nb_mod.png>
 Package pdftex.def Info: nb_mod.png used on input line 299.
 (pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
-
-Underfull \vbox (badness 1742) has occurred while \output is active []
-
  [7pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.325 $$
-        \mbox{argmin}_{w, \xi, b}\{\frac{1}{2}||w||^2 + C\sum^n_{i=1}\xi_i\}$$ 
-<./nb_mod.png (PNG copy)>]
+l.329 $$
+        k(x_i, x_j) = exp(-\gamma||x_i\cdot{x_j}||^2), \gamma > 0$$ <./nb_mod.p
+ng (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 329--332
 
  []
@@ -459,29 +455,26 @@ File: confusion_svm.png Graphic file (type png)
 Package pdftex.def Info: confusion_svm.png used on input line 360.
 (pdftex.def)             Requested size: 173.44933pt x 130.087pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [8pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.377 
-       <./svmview1.png (PNG copy)> <./svmview2.png (PNG copy)> <./svmview3.png 
-(PNG copy)>] [9pdfTeX warning (ext4): destination with the same identifier (nam
-e{figure.9}) has been already used, duplicate ignored
+l.374 \subsubsection
+                    {Brief Algorithm Summary}pdfTeX warning (ext4): destination
+ with the same identifier (name{figure.9}) has been already used, duplicate ign
+ored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.410 	\item $
-              \theta_c(V)$ : Use the probability $P(Y=c|V)$ given by the SVM...
- <./confusion_svm.png (PNG copy)>]
+l.374 \subsubsection
+                    {Brief Algorithm Summary} <./svmview1.png (PNG copy)> <./sv
+mview2.png (PNG copy)> <./svmview3.png (PNG copy)> <./confusion_svm.png (PNG co
+py)>] [9]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 466.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 466.
- [10]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Å in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
@@ -489,33 +482,27 @@ Missing character: There is no Å in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Å in font ptmr7t!
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 477.
- [11]
+ [10]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
  (./report_jon.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 477.
+Package rerunfilecheck Info: File `report_jon.out' has not changed.
+(rerunfilecheck)             Checksum: 0F3BF2226EDE4F62E02B83C9132F04B0;1160.
 
-
-Package rerunfilecheck Warning: File `report_jon.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report_jon.out':
-(rerunfilecheck)             Before: 5AF161DCBA5CECB038CCB32C6BBE74B2;1157
-(rerunfilecheck)             After:  0F3BF2226EDE4F62E02B83C9132F04B0;1160.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 477.
  ) 
 Here is how much of TeX's memory you used:
- 5931 strings out of 493117
- 86997 string characters out of 6135433
- 177925 words of memory out of 5000000
+ 5930 strings out of 493117
+ 86990 string characters out of 6135433
+ 177928 words of memory out of 5000000
  9273 multiletter control sequences out of 15000+600000
  17790 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,16n,39p,954b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,16n,39p,954b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -530,10 +517,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf
 nts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on report_jon.pdf (11 pages, 471792 bytes).
+Output written on report_jon.pdf (10 pages, 471498 bytes).
 PDF statistics:
- 257 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 253 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
  213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
