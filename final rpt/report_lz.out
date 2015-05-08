@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section.1}{Background}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [1][-]{section.3}{Methods}{}% 3
+\BOOKMARK [1][-]{section.4}{Experiments}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Data Set}{section.4}% 5
+\BOOKMARK [1][-]{section.5}{Results - Baseline}{}% 6
+\BOOKMARK [2][-]{subsection.5.1}{Naive Bayes}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{Logistic Regression}{section.5}% 8
+\BOOKMARK [1][-]{section.6}{Results - Intermediate}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{MLE-Learned HMM Parameters}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.2}{MLE-Learned HMM Comparison to Baseline}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.3}{Modified Naive Bayes}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.4}{Support Vector Machine}{section.6}% 13
+\BOOKMARK [1][-]{section.7}{Results - Final}{}% 14
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 15
